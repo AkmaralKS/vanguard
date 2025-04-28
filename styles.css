@@ -1,26 +1,15 @@
 /* CSS BY YOUR NAME */
 
 /* IMPORTED FONTS*/
-/* IMPORT "INTER" FROM GOOGLE FONTS"
+/* IMPORT "INTER" FROM GOOGLE FONTS"*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playwrite+AU+SA:wght@100..400&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* CSS RESET */
 /* http://meyerweb.com/eric/tools/css/reset/
 v2.0 | 20110126
 License: none (public domain)
 */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{
     margin: 0;
     padding: 0;
     border: 0;
@@ -28,25 +17,44 @@ time, mark, audio, video {
     font: inherit;
     vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
     display: block;
 }
+
 body {
     line-height: 1;
 }
-ol, ul {
+
+ol,
+ul {
     list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
     quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
     content: '';
     content: none;
 }
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -65,6 +73,12 @@ table {
 /* GLOBAL STYLES (MOBILE FIRST (SMALL) */
 
 /* MIN-WIDTH OF THE PAGE SHOULD NOT GO BELOW 400PX */
+body {
+    min-width: 400px;
+    font-family: var(--font);
+    background-color: var(--white);
+    color: var(--charcoal);
+}
 
 /* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
 .container {
@@ -73,11 +87,176 @@ table {
     margin: 0 auto;
 }
 
+header {
+    width: 100%;
+    background-color: #000000;
+    padding: 10px 20px;
+    border-bottom: 2px solid var(--blue);
+    
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-group {
+    display: flex;
+    align-items: center; 
+    gap: 40px; 
+  }
+
+  
+  nav ul  {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+    background-color: #0000;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    left: 20px;
+    border-radius: 10px;
+    text-align: right;
+  }
+
+  nav h2 {
+    visibility: hidden;
+    height: 1px;
+  }
+
+  nav ul li a {
+    display: flex;
+    text-decoration: none;
+    color: var(--blue);
+    font-weight: bold;
+    padding: 1rem;
+    transition: background-color .3s ease-in;
+    font-size: 1.5rem;
+    margin-left: 300px;
+  }
+ 
+  nav label{
+    cursor: pointer;
+    display: inline-block;
+    padding: 1.5rem;
+    user-select: none;
+  }
+  label span {
+    background-color: white;
+    display: block;
+    height: .25rem;
+    position: relative;
+    transition: background-color .3s ease-out;
+    width: 2rem;
+}
+label span:before, label span:after {
+    background: white;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+label span:before {
+    top: .75rem;
+}
+label span:after {
+    top: -.75rem;
+}
+input {
+  display:none;
+}
+
+input:checked ~ ul {
+    max-height: 500px;
+}
+
+input:checked ~ label span {
+    background: transparent;
+}
+
+input:checked ~ label span:before {
+    transform: rotate(-45deg);
+}
+
+input:checked ~ label span:after {
+    transform: rotate(45deg);
+}
+
+input:checked ~ label:not(.steps) span:before, input:checked ~ label:not(.steps) span:after {
+    top: 0;
+}
+@media screen and (min-width: 600px){
+  nav ul {
+    overflow:visible;
+    position:absolute;
+    top: 1.5rem;
+    left:.5rem;
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr;
+  }
+  nav li a {
+    display:inline-block;
+}
+  label span, input {
+    display:none;
+  }
+}
+.logo img {
+    height: 70px;
+    padding: 1rem 0;
+} 
+.logo h1 {
+    font-weight: bold;
+    color: var(--blue);
+    font-size: 2rem;
+    padding: 1rem 0;
+    margin-right: 60px;
+    }
+
+    #services {
+        grid-template-columns: 1fr;
+    }
+
+    #services h2, #about h2 {
+        font-size: 2rem;
+    }
+
+    #services article {
+        min-height: 200px;
+    }
+
+    #services article h3 {
+        font-size: 1.5rem;
+    }
+
+    #services article p {
+        font-size: 1rem;
+    }
+
+    #about p {
+        font-size: 1.3rem;
+        padding: 0 1rem;
+    }
+
+
 /* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
- {
+#intro {
     background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
     height: 80vh;
+    font-family: var(--font);
     display: grid;
+    color: #EAEAEA;
     place-items: center;
     text-align: center;
     padding: 1rem;
@@ -85,15 +264,179 @@ table {
 }
 
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
- {
+header h1 ::before {
     content: "";
-
-    left:-.5rem;
+    display: inline-block;
+    left: -.5rem;
     width: 3.75rem;
     height: 3.75rem;
     background: url('images/vanguard-logo.svg') no-repeat center/contain;
+    vertical-align: middle;
 
 }
+.intro-overlay{
+    background: rgba(26, 26, 26, 0.325);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 0.5rem 0.2rem;
+    border-radius: 20px;
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.intro-overlay h2{
+    font-size: 3rem;
+    padding: 1rem;
+    line-height: 1;
+    font-weight: bold;
+}
+
+.intro-overlay p{
+    font-size: 1.5rem;
+    padding: 1rem;
+    line-height: 1.6;
+}
+.cta-button {
+    display: inline-block;
+    background-color: #007bff; 
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1.5rem 1.5rem;
+    border-radius: 15px; 
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.cta-button:hover {
+    background-color: orange; 
+    color: white;
+}
+.cta-button svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: currentColor; 
+    transition: fill 0.3s ease;
+}
+#about{
+padding: 0.5rem 0.2rem;
+border-radius: 20px;
+max-width: 1500px;
+width: 100%;
+text-align: left;
+display: flex;
+flex-direction: column;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    padding: 1rem;
+    line-height: 0.5;
+    font-weight: bold;
+    margin: 60px;
+    margin: 45px 25px 25px 60px;
+}
+#about p {
+    font-size: 1.3rem;
+    padding: 0.2rem;
+    line-height: 0.2;
+    margin: 25px 1px 5px 60px;
+}
+#services {
+    padding: 2rem 2rem;
+    max-width: 1450px;
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: left;
+}
+
+#services h2 {
+    font-size: 2.5rem;
+    padding: 1rem;
+    line-height: 0.5;
+    font-weight: bold;
+    grid-column: 1 / -1;
+    margin-right: 850px;
+    margin: 35px 15px 15px 40px;
+}
+
+#services article {
+    background-color: #007bff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    color: white;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px 10px 10px 30px;
+}
+
+#services article h3 {
+    font-size: 1.7rem;
+    line-height: 1.5;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+#services article p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: -0.5rem;
+    margin-top: 1rem;
+}
+
+#services article:hover {
+    transform: translateY(-10px); 
+}
+
+#results {
+    background-color: #007bff;
+    color: var(--white);
+    padding: 4rem 2rem;
+    text-align: left;
+}
+
+#results h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+#results p {
+    font-size: 1.3rem;
+    padding: 2rem;
+}
+
+.results-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--black);
+    color: var(--white);
+}
+th, td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #333;
+}
+tbody tr:nth-child(even) {
+    background-color: #444;
+}
+
 /* THIS ONE IS DONE FOR YOU */
 #bar-chart {
     display: grid;
@@ -107,15 +450,17 @@ table {
     padding: 1rem;
     position: relative;
 }
+
 /* ADD ON TRANSITION ON HEIGHT */
 .bar {
     width: 50px;
     background: var(--charcoal);
     border-radius: 10px;
     position: relative;
-    transition: ;
     height: 0;
+    transition: height 0.3s ease-in-out;
 }
+
 /* THIS ONE IS DONE FOR YOU */
 .bar::after {
     content: attr(data-year);
@@ -127,35 +472,152 @@ table {
     font-weight: bold;
     color: var(--white);
 }
+
 @keyframes stepUp {
     0% {
         height: 0;
     }
+
     100% {
         height: var(--height);
     }
 }
+
 /* ADD ANIMATION ON stepUp for 1s ease-in-out forwards */
 .bar {
     animation: stepUp 1s ease-in-out forwards;
 }
 
 
-/* MEDIA QUERIES (MEDIUM) */ 
+/* MEDIA QUERIES (MEDIUM) */
 
-    #results {
-        grid-template-columns: 1fr 1fr;
-    }
-    .results-container {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .results-table {
-        width: 50%;
-    }
-    .bar-chart {
-        width: 50%;
-    }
+#results {
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+    gap: 2rem;
+}
+
+.results-container {
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+    align-items: flex-start;
+}
+
+.results-table {
+    width: 50%;
+}
+
+.bar-chart {
+    width: 50%;
+}
 
 
 /* MEDIA QUERIES (LARGE) */
+@media (min-width: 1024px) {
+    body {
+        font-size: 1.125rem;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    nav ul {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+}
+
+  #contact {
+    background-color:var(--black);
+    color: var(--white);
+    padding: 40px;
+  }
+  
+  #contact h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  #contact p {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 40px; 
+    align-items: start;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid var(--blue);
+    border-radius: 2px;
+    background-color: var(--white); 
+    color: var(--black); 
+  }
+  
+  form textarea {
+    height: 150px;
+    resize: none;
+  }
+
+  #fullname {
+    grid-column: 1 / 2;
+  }
+  #email {
+    grid-column: 2 / 3;
+  }
+  #company {
+    grid-column: 1 / 2;
+  }
+  #industry {
+    grid-column: 2 / 3;
+  }
+  #message {
+    grid-column: 1 / 2;
+  }
+
+  form button {
+    grid-column: 2 / 3;
+    padding: 1px;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    height: 30%; 
+  }
+  
+  form button:hover {
+    background-color: #0056b3;
+  }
+
+footer {
+    background-color: #000000;
+    color: white;
+    padding: 3rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+footer a {
+    color: #1E90FF;
+    text-decoration: underline;
+}
